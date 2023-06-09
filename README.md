@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: center; text-align: center;">
-  <h1 align=center>ML_Deploy_Time_Series-Product-Sales-Project</h1>
+  <h1 align=center>14T-ML_Time_Series-Projects-with-Python</h1>
   <img src="https://i.imgur.com/wWfpAfX.png" alt="Classification of forecasting models" style="height: 400px; width: 80%;">
 </div>
 
