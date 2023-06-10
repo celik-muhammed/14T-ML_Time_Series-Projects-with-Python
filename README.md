@@ -87,6 +87,10 @@
 
 <h2>Time Series Forecasting Basics</h2>
 
+<div style="display: flex; justify-content: center; text-align: center;">
+  <img src="https://ars.els-cdn.com/content/image/3-s2.0-B9780323917483000057-f04-02-9780323917483.jpg" style="height: 400px; width: 70%;">
+</div>
+
 <p>Time series analysis often involves using ARMA (Autoregressive Moving Average) models. The general formula for an ARMA model is:</p>
 
 <pre><b>Y<sub>t</sub> = c + Σ(AR term ) + Σ(MA term ) + ε<sub>t</sub></b></pre>
@@ -268,4 +272,5 @@ stateDiagram-v2
 <p>It is important to note that finding the right order of differencing can be a trial-and-error process. It is recommended to evaluate the model's performance using various orders of differencing and select the one that yields the best results based on evaluation metrics and the visual inspection of residual patterns.</p>
 
 ### More Info
+- https://www.sciencedirect.com/topics/earth-and-planetary-sciences/autoregressive-moving-average
 - https://machinelearningmastery.com/deep-learning-for-time-series-forecasting
