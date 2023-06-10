@@ -5,11 +5,16 @@
 
 <h2>Introduction to Time Series Forecasting</h2>
 
-<p><strong>Definition:</strong> Time series forecasting is the process of <b>predicting future values</b> based on <b>historical patterns and trends in sequential data</b>.</p>
+<p><strong>Time Series data:</strong> is a series of data points or observations recorded at different or regular time intervals. In general, a time series is a sequence of data points taken at equally spaced time intervals. The frequency of recorded data points may be hourly, daily, weekly, monthly, quarterly or annually. The time series data may be of three types:</p>
+<ol>
+  <li>Time Series data: The observations of the values of a variable recorded at different points in time is called time series data.</li>
+  <li>Cross Sectional data: It is the data of one or more variables recorded at the same point in time.</li>
+  <li>Pooled data: It is the combination of time series data and cross sectional data.</li>
+</ol>
 
-<p>Time series data often exhibit patterns such as trends and seasonality. A typical time series can be decomposed into the following components: "base level", "trend", "seasonality" (or "cyclic" behavior), and "error".</p>
+<p><strong>Time-Series Analysis:</strong> encompasses statistical methods for analyzing time series data. These methods enable us to extract meaningful statistics, patterns and other characteristics of the data. Time series are visualized with the help of line charts. So, time series analysis involves understanding inherent aspects of the time series data so that we can create meaningful and accurate forecasts.</p>
 
-<p>A trend represents a long-term increasing or decreasing pattern observed in the data. Seasonality refers to a repetitive pattern that occurs at regular intervals, which could be daily, weekly, monthly, or any other fixed time period. By understanding these components, we can develop models to capture and forecast the underlying patterns in the data.</p>
+<p><strong>Time-Series Forecasting:</strong> is the process of <b>predicting future values</b> based on <b>historical patterns and trends in sequential data</b>.</p>
 
 
 <h3>Forecasting Problems</h3>
@@ -34,9 +39,25 @@
 </ol>
 
 
-<h3>Additive and multiplicative time series</h3>
+<h3>Components of a Time Series</h3>
 
-<p>Depending on the nature of the trend and seasonality, a time series can be modeled as an additive or multiplicative, wherein, each observation in the series can be expressed as either a sum or a product of the components:</p>
+<p>Time series data often exhibit patterns such as trends and seasonality. A typical time series can be decomposed into the following components:</p>
+
+<pre>"base level" + "trend" + "seasonality" (or "cyclic" behavior) + "error"</pre>
+<ol>
+  <li>Trend: represents a long-term overall pattern observed in the data. A trend can be increasing(upward), decreasing(downward), or horizontal(stationary).</li>
+  <li>Seasonality: refers to a repetitive pattern that occurs at regular intervals, which could be daily, weekly, monthly, or any other fixed time period.</li>
+  <li>Cyclical Component: Forecast multiple time steps into the future.</li>
+  <li>Irregular Variation: Forecast multiple time steps into the future for multiple different series.</li>
+  <li>ETS Decompositio: Predict a discrete class given a sequence of observations over time.</li>
+</ol>
+
+<p>By understanding these components, we can develop models to capture and forecast the underlying patterns in the data.</p>
+
+
+<h3>Additive and Multiplicative Time Series</h3>
+
+<p>We may have different combinations of trends and seasonality. Depending on the nature of the trends and seasonality, a time series can be modeled as an additive or multiplicative time series. Wherein, each observation in the series can be expressed as either a sum or a product of the components:</p>
 
 <p>Additive time series:</p>
 <ul>
@@ -48,7 +69,25 @@
 </ul>
 
 
-<h2>Stationarity Check and Augmented Dickey-Fuller Test</h2>
+<h2>Time Series terminology</h2>
+
+<p>There are various terms and concepts in time series that we should know. These are as follows:</p>
+<ol>
+  <li>Dependence: refers to the association of two observations of the same variable at prior time periods.</li>
+  <li>Stationarity: shows the mean value of the series that remains constant over the time period. If past effects accumulate and the values increase towards infinity then stationarity is not met.</li>
+  <li>Differencing: is used to make the series stationary and to control the auto-correlations. There may be some cases in time series analyses where we do not require differencing and over-differenced series can produce wrong estimates.</li>
+  <li>Specification: may involve the testing of the linear or non-linear relationships of dependent variables by using time series models such as ARIMA models.</li>
+  <li>Exponential Smoothing: in time series analysis predicts the one next period value based on the past and current value.  It involves averaging of data such that the non-systematic components of each individual case or observation cancel out each other.  The exponential smoothing method is used to predict the short term prediction.</li>
+  <li>Curve fitting: regression in time series analysis is used when data is in a non-linear relationship.</li>
+</ol>
+
+
+<h3>Decomposition of a Time Series</h3>
+
+<p>Decomposition of a time series can be performed by considering the series as an additive or multiplicative combination of the base level, trend, seasonal index and the residual term. The seasonal_decompose in statsmodels implements this conveniently.</p>
+
+
+<h2>Stationary and Non-Stationary Time Series and Augmented Dickey-Fuller Test</h2>
 
 <p>Stationarity is an important concept in time series analysis. A stationary time series is one whose statistical properties, such as mean and variance, do not change over time. Stationary data is desirable for time series forecasting as it allows for more reliable modeling and prediction.</p>
 
@@ -261,9 +300,68 @@ stateDiagram-v2
 <p>Analyze the model's performance and iteratively refine it. This may involve adjusting hyperparameters, trying different architectures, or incorporating additional features. Continuously evaluate and compare the model's performance with different variations to identify the best approach.</p>
 
 
+
 <h1>Question and Answer:</h1>
 
-<h2>How to handle if a time series is slightly under or over differenced?</h2>
+
+<h2>1. Reasons to convert a non-stationary series into a stationary one before forecasting?</h2>
+
+<p>Forecasting a stationary series is relatively easy and the forecasts are more reliable.</p>
+
+<p>An important reason is that autoregressive forecasting models are essentially linear regression models that utilize the lag(s) of the series itself as predictors.</p>
+
+<p>We know that linear regression works best if the predictors (X variables) are not correlated with each other. So, stationarizing the series solves this problem since it removes any persistent autocorrelation, thereby making the predictors (lags of the series) in the forecasting models nearly independent.</p>
+
+
+<h2>2. Difference between White Noise and a Stationary series?</h2>
+
+<p>Like a stationary series, white noise is also not a function of time. So, its mean and variance do not change over time. But the difference is that white noise is completely random with a mean of 0. In white noise, there is no pattern.</p>
+
+<p>Mathematically, a sequence of completely random numbers with mean zero is a white noise.</p>
+
+
+<h2>3. How to test for stationarity?</h2>
+
+<h3>Augmented Dickey–Fuller Test (ADF Test)</h3>
+<ul>
+  <li>Augmented Dickey Fuller test or (ADF Test) is the most commonly used test to detect stationarity. Here, we assume that the null hypothesis is that the time series possesses a unit root and is non-stationary. Then, we collect evidence to support or reject the null hypothesis. So, if we find that the p-value in the ADF test is less than the significance level (0.05), we reject the null hypothesis.</li>
+  <li>Feel free to check the following links to learn more about the ADF Test:</li>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Augmented_Dickey%E2%80%93Fuller_test">Wikipedia - Augmented Dickey–Fuller Test</a></li>
+    <li><a href="https://www.machinelearningplus.com/time-series/augmented-dickey-fuller-test/">Machine Learning Plus - Augmented Dickey–Fuller Test</a></li>
+    <li><a href="https://machinelearningmastery.com/time-series-data-stationary-python/">Machine Learning Mastery - Augmented Dickey–Fuller Test</a></li>
+    <li><a href="http://www.insightsbot.com/augmented-dickey-fuller-test-in-python/">Insightsbot - Augmented Dickey–Fuller Test</a></li>
+    <li><a href="https://nwfsc-timeseries.github.io/atsa-labs/sec-boxjenkins-aug-dickey-fuller.html">NWFSCTimeseries - Augmented Dickey–Fuller Test</a></li>
+    <li><a href="https://www.statisticshowto.com/adf-augmented-dickey-fuller-test/">Statistics How To - Augmented Dickey–Fuller Test</a></li>
+  </ul>
+</ul>
+
+<h3>Kwiatkowski-Phillips-Schmidt-Shin – KPSS test (trend stationary)</h3>
+<ul>
+  <li>The KPSS test, on the other hand, is used to test for trend stationarity. The null hypothesis and the P-Value interpretation are just the opposite of the ADF test.</li>
+  <li>Interested readers can learn more about the KPSS test from the following links:</li>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/KPSS_test">Wikipedia - KPSS test</a></li>
+    <li><a href="https://www.machinelearningplus.com/time-series/kpss-test-for-stationarity/">Machine Learning Plus - KPSS test for Stationarity</a></li>
+    <li><a href="https://www.statisticshowto.com/kpss-test/">Statistics How To - KPSS test</a></li>
+    <li><a href="https://nwfsc-timeseries.github.io/atsa-labs/sec-boxjenkins-kpss.html">NWFSCTimeseries - KPSS test</a></li>
+  </ul>
+</ul>
+
+<h3>Philips Perron test (PP Test)</h3>
+<ul>
+  <li>The Philips Perron or PP test is a <a href="https://en.wikipedia.org/wiki/Unit_root">unit root test</a>. It is used in the <a href="https://en.wikipedia.org/wiki/Time_series">time series analysis</a> to test the <a href="https://en.wikipedia.org/wiki/Null_hypothesis">null hypothesis</a> that a time series is integrated of order 1. It is built on the ADF test discussed above.</li>
+  <li>For more information on the PP test, please visit the following links:</li>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Phillips%E2%80%93Perron_test">Wikipedia - Philips Perron Test</a></li>
+    <li><a href="https://www.mathworks.com/help/econ/pptest.html">MathWorks - Philips Perron Test</a></li>
+    <li><a href="https://people.bath.ac.uk/hssjrh/Phillips%20Perron.pdf">University of Bath - Philips Perron Test</a></li>
+    <li><a href="https://www.stata.com/manuals13/tspperron.pdf">Stata - Philips Perron Test</a></li>
+  </ul>
+</ul>
+
+
+<h2>4. How to handle if a time series is slightly under or over-differenced?</h2>
 
 <p>If a time series is slightly underdifferenced, it means that further differencing is required to achieve stationarity. In this case, you can increase the order of differencing (d) in the ARIMA model until the series becomes stationary.</p>
 
@@ -271,6 +369,109 @@ stateDiagram-v2
 
 <p>It is important to note that finding the right order of differencing can be a trial-and-error process. It is recommended to evaluate the model's performance using various orders of differencing and select the one that yields the best results based on evaluation metrics and the visual inspection of residual patterns.</p>
 
-### More Info
-- https://www.sciencedirect.com/topics/earth-and-planetary-sciences/autoregressive-moving-average
-- https://machinelearningmastery.com/deep-learning-for-time-series-forecasting
+
+<h2>5. Detrend a Time Series</h2>
+
+<p>Detrending a time series means to remove the trend component from the time series. There are multiple approaches of doing this as listed below:</p>
+
+<ol>
+  <li>Subtract the line of best fit from the time series. The line of best fit may be obtained from a linear regression model with the time steps as the predictor. For more complex trends, we may want to use quadratic terms (x^2) in the model.</li>
+  <li>We subtract the trend component obtained from time series decomposition.</li>
+  <li>Subtract the mean.</li>
+  <li>Apply a filter like Baxter-King filter (statsmodels.tsa.filters.bkfilter) or the Hodrick-Prescott Filter (statsmodels.tsa.filters.hpfilter) to remove the moving average trend lines or the cyclical components.</li>
+</ol>
+
+<p>Now, we will implement the first two methods to detrend a time series.</p>
+
+
+<h2>6. Deseasonalize a Time Series</h2>
+
+<p>There are multiple approaches to deseasonalize a time series. These approaches are listed below:</p>
+
+<ol>
+  <li>Take a moving average with length as the seasonal window. This will smoothen in series in the process.</li>
+  <li>Seasonal difference the series (subtract the value of previous season from the current value).</li>
+  <li>Divide the series by the seasonal index obtained from STL decomposition.</li>
+</ol>
+
+<p>If dividing by the seasonal index does not work well, we will take a log of the series and then do the deseasonalizing. We will later restore to the original scale by taking an exponential.</p>
+
+<h2>7. How to test for seasonality of a time series?</h2>
+
+<p>The common way to test for seasonality of a time series is to plot the series and check for repeatable patterns in fixed time intervals. So, the types of seasonality is determined by the clock or the calendar.</p>
+
+<ol>
+  <li>Hour of day</li>
+  <li>Day of month</li>
+  <li>Weekly</li>
+  <li>Monthly</li>
+  <li>Yearly</li>
+</ol>
+
+<p>However, if we want a more definitive inspection of the seasonality, use the <strong>Autocorrelation Function (ACF) plot</strong>. There is a strong seasonal pattern, the ACF plot usually reveals definitive repeated spikes at the multiples of the seasonal window.</p>
+
+<h2>8. Autocorrelation and Partial Autocorrelation Functions</h2>
+
+<p><strong>Autocorrelation</strong> is simply the correlation of a series with its own lags. If a series is significantly autocorrelated, that means, the previous values of the series (lags) may be helpful in predicting the current value.</p>
+
+<p><strong>Partial Autocorrelation</strong> also conveys similar information but it conveys the pure correlation of a series and its lag, excluding the correlation contributions from the intermediate lags.</p>
+
+<h2>9. Computation of Partial Autocorrelation Function</h2>
+
+<p>The partial autocorrelation function of lag (k) of a series is the coefficient of that lag in the autoregression equation of Y. The autoregressive equation of Y is nothing but the linear regression of Y with its own lags as predictors.</p>
+
+<p>For example, if <strong>Y_t</strong> is the current series and <strong>Y_t-1</strong> is the lag 1 of Y, then the partial autocorrelation of <strong>lag 3 (Y_t-3)</strong> is the coefficient α3 of Y_t-3 in the following equation:</p>
+
+<h2>10. Lag Plots</h2>
+
+<p>A <strong>Lag plot</strong> is a scatter plot of a time series against a lag of itself. It is normally used to check for autocorrelation. If there is any pattern existing in the series, the series is autocorrelated. If there is no such pattern, the series is likely to be random white noise.</p>
+
+<h2>11. Granger Causality Test</h2>
+
+<p><strong>Granger causality test</strong> is used to determine if one time series will be useful to forecast another. It is based on the idea that if X causes Y, then the forecast of Y based on previous values of Y AND the previous values of X should outperform the forecast of Y based on previous values of Y alone.</p>
+
+<p>So, <strong>Granger causality test</strong> should not be used to test if a lag of Y causes Y. Instead, it is generally used on exogenous (not Y lag) variables only. It is implemented in the statsmodel package.</p>
+
+<p>It accepts a 2D array with 2 columns as the main argument. The values are in the first column and the predictor (X) is in the second column. The Null hypothesis is that the series in the second column does not Granger cause the series in the first. If the P-Values are less than a significance level (0.05), then we reject the null hypothesis and conclude that the said lag of X is indeed useful. The second argument maxlag says till how many lags of Y should be included in the test.</p>
+
+<h2>12. Smoothening a Time Series</h2>
+
+<p>Smoothening of a time series may be useful in the following circumstances:</p>
+
+<ul>
+  <li>Reducing the effect of noise in a signal to get a fair approximation of the noise-filtered series.</li>
+  <li>The smoothed version of the series can be used as a feature to explain the original series itself.</li>
+  <li>Visualize the underlying trend better.</li>
+</ul>
+
+<p>We can smoothen a time series using the following methods:</p>
+
+<ul>
+  <li>Take a moving average.</li>
+  <li>Do a LOESS smoothing (Localized Regression).</li>
+  <li>Do a LOWESS smoothing (Locally Weighted Regression).</li>
+</ul>
+
+<h2>13. Moving Average</h2>
+
+<p><strong>Moving average</strong> is the average of a rolling window of defined width. We must choose the window-width wisely because a large window-size will over-smooth the series. For example, a window-size equal to the seasonal duration (ex: 12 for a month-wise series) will effectively nullify the seasonal effect.</p>
+
+<h2>14. Localized Regression</h2>
+
+<p>LOESS, short for ‘Localized Regression’, fits multiple regressions in the local neighborhood of each point. It is implemented in the statsmodels package, where you can control the degree of smoothing using the frac argument which specifies the percentage of data points nearby that should be considered to fit a regression model.</p>
+
+
+
+
+
+<h2>Time Series Analysis in Python</h2>
+
+<p>If you are interested in learning more about time series analysis in Python, you can explore the following resources:</p>
+
+<ul>
+  <li><a href="https://www.machinelearningplus.com/time-series/time-series-analysis-python/">Machine Learning Plus - Time Series Analysis in Python</a></li>
+  <li><a href="https://towardsdatascience.com/an-end-to-end-project-on-time-series-analysis-and-forecasting-with-python-4835e6bf050b">Towards Data Science - An End-to-End Project on Time Series Analysis and Forecasting with Python</a></li>
+  <li><a href="https://www.statsmodels.org/stable/examples/index.html#time-series-analysis">StatsModels - Time Series Analysis Examples</a></li>
+  <li><a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/autoregressive-moving-average">ScienceDirect - Autoregressive Moving Average</a></li>
+  <li><a href="https://machinelearningmastery.com/deep-learning-for-time-series-forecasting">Machine Learning Mastery - Deep Learning for Time Series Forecasting</a></li>
+</ul>
