@@ -301,10 +301,14 @@ stateDiagram-v2
 
 
 
-<h1>Question and Answer:</h1>
+<h1>QnA Question and Answer:</h1>
+
+<h2>Q: Up until now, we have <strong>observed similarities</strong> to identify the pattern. Now, how can <strong>any deviations</strong> from the norm be detected?</h2>
+
+<p>A: Indeed, one way to detect deviations from the normal pattern is through the <strong>decomposition of a time series</strong>. By decomposing a time series into its underlying components, such as trend, seasonality, and residual (or error), it becomes easier to identify any anomalous behavior or outliers that deviate from the expected pattern. The decomposition process allows us to analyze and understand the individual components of the time series, enabling us to detect any unusual variations or deviations from the norm.</p>
 
 
-<h2>1. Reasons to convert a non-stationary series into a stationary one before forecasting?</h2>
+<h2>Q: Reasons to convert a non-stationary series into a stationary one before forecasting?</h2>
 
 <p>Forecasting a stationary series is relatively easy and the forecasts are more reliable.</p>
 
@@ -313,14 +317,14 @@ stateDiagram-v2
 <p>We know that linear regression works best if the predictors (X variables) are not correlated with each other. So, stationarizing the series solves this problem since it removes any persistent autocorrelation, thereby making the predictors (lags of the series) in the forecasting models nearly independent.</p>
 
 
-<h2>2. Difference between White Noise and a Stationary series?</h2>
+<h2>Q: Difference between White Noise and a Stationary series?</h2>
 
 <p>Like a stationary series, white noise is also not a function of time. So, its mean and variance do not change over time. But the difference is that white noise is completely random with a mean of 0. In white noise, there is no pattern.</p>
 
 <p>Mathematically, a sequence of completely random numbers with mean zero is a white noise.</p>
 
 
-<h2>3. How to test for stationarity?</h2>
+<h2>Q: How to test for stationarity?</h2>
 
 <h3>Augmented Dickey–Fuller Test (ADF Test)</h3>
 <ul>
@@ -361,7 +365,7 @@ stateDiagram-v2
 </ul>
 
 
-<h2>4. How to handle if a time series is slightly under or over-differenced?</h2>
+<h2>Q: How to handle if a time series is slightly under or over-differenced?</h2>
 
 <p>If a time series is slightly underdifferenced, it means that further differencing is required to achieve stationarity. In this case, you can increase the order of differencing (d) in the ARIMA model until the series becomes stationary.</p>
 
@@ -370,7 +374,7 @@ stateDiagram-v2
 <p>It is important to note that finding the right order of differencing can be a trial-and-error process. It is recommended to evaluate the model's performance using various orders of differencing and select the one that yields the best results based on evaluation metrics and the visual inspection of residual patterns.</p>
 
 
-<h2>5. Detrend a Time Series</h2>
+<h2>Q: Detrend a Time Series</h2>
 
 <p>Detrending a time series means to remove the trend component from the time series. There are multiple approaches of doing this as listed below:</p>
 
@@ -384,7 +388,7 @@ stateDiagram-v2
 <p>Now, we will implement the first two methods to detrend a time series.</p>
 
 
-<h2>6. Deseasonalize a Time Series</h2>
+<h2>Q: Deseasonalize a Time Series</h2>
 
 <p>There are multiple approaches to deseasonalize a time series. These approaches are listed below:</p>
 
@@ -396,7 +400,7 @@ stateDiagram-v2
 
 <p>If dividing by the seasonal index does not work well, we will take a log of the series and then do the deseasonalizing. We will later restore to the original scale by taking an exponential.</p>
 
-<h2>7. How to test for seasonality of a time series?</h2>
+<h2>Q: How to test for seasonality of a time series?</h2>
 
 <p>The common way to test for seasonality of a time series is to plot the series and check for repeatable patterns in fixed time intervals. So, the types of seasonality is determined by the clock or the calendar.</p>
 
@@ -410,23 +414,26 @@ stateDiagram-v2
 
 <p>However, if we want a more definitive inspection of the seasonality, use the <strong>Autocorrelation Function (ACF) plot</strong>. There is a strong seasonal pattern, the ACF plot usually reveals definitive repeated spikes at the multiples of the seasonal window.</p>
 
-<h2>8. Autocorrelation and Partial Autocorrelation Functions</h2>
+<h2>Q: Autocorrelation and Partial Autocorrelation Functions</h2>
 
 <p><strong>Autocorrelation</strong> is simply the correlation of a series with its own lags. If a series is significantly autocorrelated, that means, the previous values of the series (lags) may be helpful in predicting the current value.</p>
 
 <p><strong>Partial Autocorrelation</strong> also conveys similar information but it conveys the pure correlation of a series and its lag, excluding the correlation contributions from the intermediate lags.</p>
 
-<h2>9. Computation of Partial Autocorrelation Function</h2>
+
+<h2>Q: Computation of Partial Autocorrelation Function</h2>
 
 <p>The partial autocorrelation function of lag (k) of a series is the coefficient of that lag in the autoregression equation of Y. The autoregressive equation of Y is nothing but the linear regression of Y with its own lags as predictors.</p>
 
 <p>For example, if <strong>Y_t</strong> is the current series and <strong>Y_t-1</strong> is the lag 1 of Y, then the partial autocorrelation of <strong>lag 3 (Y_t-3)</strong> is the coefficient α3 of Y_t-3 in the following equation:</p>
 
-<h2>10. Lag Plots</h2>
+
+<h2>Q: Lag Plots</h2>
 
 <p>A <strong>Lag plot</strong> is a scatter plot of a time series against a lag of itself. It is normally used to check for autocorrelation. If there is any pattern existing in the series, the series is autocorrelated. If there is no such pattern, the series is likely to be random white noise.</p>
 
-<h2>11. Granger Causality Test</h2>
+
+<h2>Q: Granger Causality Test</h2>
 
 <p><strong>Granger causality test</strong> is used to determine if one time series will be useful to forecast another. It is based on the idea that if X causes Y, then the forecast of Y based on previous values of Y AND the previous values of X should outperform the forecast of Y based on previous values of Y alone.</p>
 
@@ -434,7 +441,8 @@ stateDiagram-v2
 
 <p>It accepts a 2D array with 2 columns as the main argument. The values are in the first column and the predictor (X) is in the second column. The Null hypothesis is that the series in the second column does not Granger cause the series in the first. If the P-Values are less than a significance level (0.05), then we reject the null hypothesis and conclude that the said lag of X is indeed useful. The second argument maxlag says till how many lags of Y should be included in the test.</p>
 
-<h2>12. Smoothening a Time Series</h2>
+
+<h2>Q: Smoothening a Time Series</h2>
 
 <p>Smoothening of a time series may be useful in the following circumstances:</p>
 
@@ -452,11 +460,13 @@ stateDiagram-v2
   <li>Do a LOWESS smoothing (Locally Weighted Regression).</li>
 </ul>
 
-<h2>13. Moving Average</h2>
+
+<h2>Q: Moving Average</h2>
 
 <p><strong>Moving average</strong> is the average of a rolling window of defined width. We must choose the window-width wisely because a large window-size will over-smooth the series. For example, a window-size equal to the seasonal duration (ex: 12 for a month-wise series) will effectively nullify the seasonal effect.</p>
 
-<h2>14. Localized Regression</h2>
+
+<h2>Q: Localized Regression</h2>
 
 <p>LOESS, short for ‘Localized Regression’, fits multiple regressions in the local neighborhood of each point. It is implemented in the statsmodels package, where you can control the degree of smoothing using the frac argument which specifies the percentage of data points nearby that should be considered to fit a regression model.</p>
 
@@ -469,9 +479,12 @@ stateDiagram-v2
 <p>If you are interested in learning more about time series analysis in Python, you can explore the following resources:</p>
 
 <ul>
-  <li><a href="https://www.machinelearningplus.com/time-series/time-series-analysis-python/">Machine Learning Plus - Time Series Analysis in Python</a></li>
-  <li><a href="https://towardsdatascience.com/an-end-to-end-project-on-time-series-analysis-and-forecasting-with-python-4835e6bf050b">Towards Data Science - An End-to-End Project on Time Series Analysis and Forecasting with Python</a></li>
   <li><a href="https://www.statsmodels.org/stable/examples/index.html#time-series-analysis">StatsModels - Time Series Analysis Examples</a></li>
-  <li><a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/autoregressive-moving-average">ScienceDirect - Autoregressive Moving Average</a></li>
+  <li><a href="https://www.simplilearn.com/tutorials/statistics-tutorial/p-value-in-statistics-hypothesis">Simplilearn - P-value in Statistics Hypothesis</a></li>
+  <li><a href="https://www.machinelearningplus.com/time-series/time-series-analysis-python/">Machine Learning Plus - Time Series Analysis in Python</a></li>
+  <li><a href="https://www.machinelearningplus.com/time-series/arima-model-time-series-forecasting-python/">Machine Learning Plus - ARIMA Model Time Series Forecasting in Python</a></li>
+  <li><a href="https://machinelearningmastery.com/how-to-grid-search-triple-exponential-smoothing-for-time-series-forecasting-in-python/">Machine Learning Mastery - How to Grid Search Triple Exponential Smoothing for Time Series Forecasting in Python</a></li>
   <li><a href="https://machinelearningmastery.com/deep-learning-for-time-series-forecasting">Machine Learning Mastery - Deep Learning for Time Series Forecasting</a></li>
+  <li><a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/autoregressive-moving-average">ScienceDirect - Autoregressive Moving Average</a></li>
+  <li><a href="https://towardsdatascience.com/an-end-to-end-project-on-time-series-analysis-and-forecasting-with-python-4835e6bf050b">Towards Data Science - An End-to-End Project on Time Series Analysis and Forecasting with Python</a></li>
 </ul>
