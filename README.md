@@ -25,7 +25,7 @@
 <thead><tr><th>1.1 Univariate Models (ARIMA, SARIMAX, ETS, PROPHET)</th><th>1.2 Multivariate Models (Vector Autoregression)</th></tr></thead>
 <tbody>
   <tr>
-    <td rowspan="2"><a href="https://github.com/celik-muhammed/ML_Time_Series_Deploy_Product_Sales_Prediction/blob/master/README.md">01. ML_Time_Series_Deploy Product Sales Prediction</a></td>
+    <td rowspan="2"><a href="https://github.com/celik-muhammed/ML_Time_Series_Deploy-Perrin-Freres-Monthly-Champagne-Sales-Prediction/blob/master/README.md">01. ML_Time_Series_Deploy Perrin Freres Monthly Champagne Sales Prediction</a></td>
     <td><a href="#"></a></td>
   </tr>
   <tr>
