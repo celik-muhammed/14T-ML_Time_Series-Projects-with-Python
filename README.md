@@ -19,18 +19,28 @@
 </h3>
 
 
-  
 <table align="center">
     <caption><div align='center'>Machine Learning Time Series Projects with Python</div></caption>
-<thead align='left'><tr><th>1. Autoregressive Forecasting Methods</th></tr></thead>
+<thead align='left'><tr><th colspan=2>1. Traditional Time Series forecasting</th></tr></thead>
+<thead><tr><th>1.1 Univariate Models (ARIMA, SARIMAX, ETS, PROPHET)</th><th>1.2 Multivariate Models (Vector Autoregression)</th></tr></thead>
 <tbody>
   <tr>
-    <td><a href="https://github.com/celik-muhammed/ML_Time_Series_Deploy_Product_Sales_Prediction/blob/master/README.md">01. ML_Time_Series_Deploy Product Sales Prediction</a></td>
+    <td rowspan="2"><a href="https://github.com/celik-muhammed/ML_Time_Series_Deploy_Product_Sales_Prediction/blob/master/README.md">01. ML_Time_Series_Deploy Product Sales Prediction</a></td>
+    <td><a href="#"></a></td>
+  </tr>
+  <tr>
+<!--     <td><a href="https://www.kaggle.com/code/clkmuhammed/credit-score-classification-logreg-rf-xgb-deploy/notebook">02. Kaggle: Credit Score Classification</a></td> -->
   </tr>
 </tbody>
-<thead align='left'><tr><th colspan=2>2. Exponential Smoothing Forecasting Methods</th></tr></thead>
+<thead align='left'><tr><th colspan=2>2. Machine Learning Time Series forecasting</th></tr></thead>
+<thead><tr><th>2.1 Any Regrressor (CATBOOST)</th><th>2.2 _</th></tr></thead>
 <tbody>
   <tr>
+    <td><a href="#"></a></td>
+    <td><a href="#"></a></td>
+  </tr>
+  <tr>
+    <td><a href="#"></a></td>
     <td><a href="#"></a></td>
   </tr>
 </tbody>
@@ -40,9 +50,15 @@
 </tfoot>
 </table>
 
+<div align="center">
+  <img src="https://joapen.com/blog/wp-content/uploads/2021/05/image-2.png" alt="Classification of forecasting models" style="height: 400px; width: 80%;"> </div>
+  
+  
 <br><br>
 
-<div style="display: flex; justify-content: center; text-align: center;">
+
+
+<div style="display: flex; justify-content: center; text-align: center;">  
   <h1 align=center>14T Machine Learning Time Series Projects with Python</h1>
   <img src="https://i.imgur.com/wWfpAfX.png" alt="Classification of forecasting models" style="height: 400px; width: 80%;">
 </div>
