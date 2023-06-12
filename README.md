@@ -22,7 +22,7 @@
 <table align="center">
     <caption><div align='center'>Machine Learning Time Series Projects with Python</div></caption>
 <thead align='left'><tr><th colspan=2>1. Traditional Time Series forecasting</th></tr></thead>
-<thead><tr><th>1.1 Univariate Models (ARIMA, SARIMAX, ETS, PROPHET)</th><th>1.2 Multivariate Models (Vector Autoregression)</th></tr></thead>
+<thead><tr><th>1.1 Univariate Models (ARIMA, SARIMAX, ETS, PROPHET)</th><th>1.2 Multivariate Models (Vector Autoregression (VAR), VARMAX, PROPHET)</th></tr></thead>
 <tbody>
   <tr>
     <td rowspan="2"><a href="https://github.com/celik-muhammed/ML_Time_Series_Deploy-Perrin-Freres-Monthly-Champagne-Sales-Prediction/blob/master/README.md">01. ML_Time_Series_Deploy Perrin Freres Monthly Champagne Sales Prediction</a></td>
