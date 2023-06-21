@@ -36,7 +36,7 @@
 <thead><tr><th>2.1 Any Regrressor (CATBOOST)</th><th>2.2 _</th></tr></thead>
 <tbody>
   <tr>
-    <td><a href="#"></a></td>
+    <td rowspan="2"><a href="https://github.com/celik-muhammed/ML_Time_Series_Deploy-Perrin-Freres-Monthly-Champagne-Sales-Prediction/blob/master/README.md">01. ML_Time_Series_Deploy Perrin Freres Monthly Champagne Sales Prediction</a></td>
     <td><a href="#"></a></td>
   </tr>
   <tr>
