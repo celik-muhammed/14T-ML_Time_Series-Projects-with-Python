@@ -33,7 +33,7 @@
   </tr>
 </tbody>
 <thead align='left'><tr><th colspan=2>2. Machine Learning Time Series forecasting</th></tr></thead>
-<thead><tr><th>2.1 Any Regrressor (CATBOOST)</th><th>2.2 _</th></tr></thead>
+<thead><tr><th>2.1 Skforecast (Scikit-Learn Regressors As Single And Multi-Step Forecasters) With Gradient Boosting (LightGBM, XGBoost, CatBoost)</th><th>2.2 _</th></tr></thead>
 <tbody>
   <tr>
     <td rowspan="2"><a href="https://github.com/celik-muhammed/ML_Time_Series_Deploy-Perrin-Freres-Monthly-Champagne-Sales-Prediction/blob/master/README.md">01. ML_Time_Series_Deploy Perrin Freres Monthly Champagne Sales Prediction</a></td>
